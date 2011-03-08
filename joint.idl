@@ -1,0 +1,22 @@
+
+#include "BasicDataType.idl"
+
+struct TimedJointState
+{
+  Time						tm;
+  Time						cmd;
+  unsigned short			id;
+  sequence<double>			angle;
+  sequence<double>			velocity;
+  sequence<unsigned long>	servoState;
+};
+
+struct TimedJointCommand
+{
+  Time						tm;
+  Time						cmd;
+  unsigned short			id;
+  sequence<double>			angle;
+  unsigned long			collidingPartFlag;
+};
+
