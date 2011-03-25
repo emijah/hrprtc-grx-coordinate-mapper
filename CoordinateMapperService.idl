@@ -1,10 +1,11 @@
 // -*- mode: idl; indent-tabs-mode: t; tab-width: 4; c-basic-offset: 4; -*-
 #include <InterfaceDataTypes.idl>
 
+module OpenHRP {
 typedef double CoordinateSystem[6];
-
 interface CoordinateMapperService
 {
   CoordinateSystem calcLocal2Global(in CoordinateSystem in_cs, in string joint);
   CoordinateSystem calcGlobal2Local(in CoordinateSystem in_cs, in string joint);
+};
 };

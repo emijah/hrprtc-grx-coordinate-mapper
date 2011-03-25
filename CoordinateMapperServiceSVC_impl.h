@@ -15,7 +15,7 @@
  * Example class implementing IDL interface CoordinateMapperService
  */
 class CoordinateMapperServiceSVC_impl
-: public virtual POA_CoordinateMapperService,
+: public virtual POA_OpenHRP::CoordinateMapperService,
 public virtual PortableServer::RefCountServantBase
 {
 	public:
@@ -25,8 +25,8 @@ public virtual PortableServer::RefCountServantBase
 		bool loadModel(std::string &model);
 
 		// attributes and operations
-		CoordinateSystem_slice* calcLocal2Global(const CoordinateSystem in_cs, const char* joint);
-		CoordinateSystem_slice* calcGlobal2Local(const CoordinateSystem in_cs, const char* joint);
+		OpenHRP::CoordinateSystem_slice* calcLocal2Global(const OpenHRP::CoordinateSystem in_cs, const char* joint);
+		OpenHRP::CoordinateSystem_slice* calcGlobal2Local(const OpenHRP::CoordinateSystem in_cs, const char* joint);
 
 	private:
 		// Make sure all instances are built on the heap by making the
