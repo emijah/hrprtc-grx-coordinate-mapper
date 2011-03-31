@@ -5,11 +5,12 @@
  *
  */
 
-#include "CoordinateMapperServiceSkel.h"
-#include "mapper.h"
-
 #ifndef COORDINATEMAPPERSERVICESVC_IMPL_H
 #define COORDINATEMAPPERSERVICESVC_IMPL_H
+
+//#include "CoordinateMapperServiceSkel.h"
+#include "CoordinateMapperService.hh"
+#include "mapper.h"
 
 /*
  * Example class implementing IDL interface CoordinateMapperService
