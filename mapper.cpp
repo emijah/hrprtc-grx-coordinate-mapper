@@ -68,7 +68,7 @@ mapper::l2g(const double in_cs[6], double out_cs[6], const char *joint)
 	*/
 
 	// *************************************************
-	// 
+	//
 	// ex.) hrp::Link* lj2  = body->link("LARM_JOINT2");
 	//      lj2->q = -90*M_PI/180.0;
 	// *************************************************
@@ -135,7 +135,7 @@ bool
 mapper::g2l(const double in_cs[6], double out_cs[6], const char *joint)
 {
 	// *************************************************
-	// 
+	//
 	// ex.) hrp::Link* lj2  = body->link("LARM_JOINT2");
 	//      lj2->q = -90*M_PI/180.0;
 	// *************************************************
