@@ -32,14 +32,14 @@ generate_stub_skel(CoordinateMapperService)
 
 set(comp_sources CoordinateMapperServiceSk.cpp CoordinateMapper.cpp mapper.cpp)
 add_library(CoordinateMapper SHARED ${comp_sources})
-target_link_libraries(CoordinateMapper ${OPENHRP_LIBRARIES})
+target_link_libraries(CoordinateMapper)
 set_target_properties(CoordinateMapper PROPERTIES PREFIX "")
 
 if(NO_COMP)
   set(target CoordinateMapper)
 else()
   add_executable(CoordinateMapperComp CoordinateMapperComp.cpp ${comp_sources})
-  target_link_libraries(CoordinateMapperComp ${OPENHRP_LIBRARIES})
+  target_link_libraries(CoordinateMapperComp)
   set(target CoordinateMapper CoordinateMapperComp)
 endif()
 
