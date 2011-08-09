@@ -16,7 +16,7 @@
 
 // Service implementation headers
 // <rtc-template block="service_impl_h">
-#include "CoordinateMapperServiceSVC_impl.h"
+#include "CoordinateMapperService_impl.h"
 
 // </rtc-template>
 
@@ -105,7 +105,7 @@ class CoordinateMapper  : public RTC::DataFlowComponentBase
 
 		// Service declaration
 		// <rtc-template block="service_declare">
-		CoordinateMapperServiceSVC_impl m_service0;
+		CoordinateMapperService_impl m_service0;
 
 		// </rtc-template>
 

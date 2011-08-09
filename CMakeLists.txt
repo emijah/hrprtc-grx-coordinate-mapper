@@ -27,28 +27,34 @@ endif(QNXNTO)
 
 include(GenerateStubSkel)
 
-generate_stub_skel(CoordinateMapperService)
+####
+## for each component
+##
+set(comp_name CoordinateMapper)
+set(comp_sources ${comp_name}.cpp)
+
+generate_stub_skel(${comp_name}Service)
+set(comp_sources ${comp_sources} ${comp_name}Service_impl.cpp ${comp_name}ServiceSk.cpp)
 #generate_hrpsys_stub_skel_wrapper(JointDataTypes)
+#set(comp_sources ${comp_sources} JointDataTypesStub.cpp)
 
-set(comp_sources CoordinateMapperServiceSk.cpp CoordinateMapper.cpp mapper.cpp)
-add_library(CoordinateMapper SHARED ${comp_sources})
-target_link_libraries(CoordinateMapper)
-set_target_properties(CoordinateMapper PROPERTIES PREFIX "")
+set(comp_sources ${comp_sources} mapper.cpp)
 
-if(NO_COMP)
-  set(target CoordinateMapper)
+add_library(${comp_name} SHARED ${comp_sources})
+target_link_libraries(${comp_name} ${OPENRTM_LIBRARIES} hrpModel-3.1 hrpUtil-3.1)
+set_target_properties(${comp_name} PROPERTIES PREFIX "")
+
+if (NO_COMP)
+  set(target ${comp_name})
 else()
-  add_executable(CoordinateMapperComp CoordinateMapperComp.cpp ${comp_sources})
-  target_link_libraries(CoordinateMapperComp)
-  set(target CoordinateMapper CoordinateMapperComp)
+  set(target ${comp_name} ${comp_name}Comp)
+  add_executable(${comp_name}Comp ${comp_name}Comp.cpp ${comp_sources})
+  target_link_libraries(${comp_name}Comp ${OPENRTM_LIBRARIES} hrpModel-3.1 hrpUtil-3.1)
 endif()
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb3 -fno-schedule-insns -fno-schedule-insns2 -fno-strict-aliasing")
 
 install(TARGETS ${target}
   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
   LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
-)
-
-if(ENABLE_COMMERCIAL)
-  target_link_libraries(CoordinateMapper certify)
-  target_link_libraries(CoordinateMapperComp certify)
-endif()
+  )

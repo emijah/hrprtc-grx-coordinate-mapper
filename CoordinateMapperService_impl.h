@@ -1,12 +1,12 @@
 // -*-C++-*-
 /*!
- * @file  CoordinateMapperServiceSVC_impl.h
+ * @file  CoordinateMapperService_impl.h
  * @brief Service implementation header of CoordinateMapperService.idl
  *
  */
 
-#ifndef COORDINATEMAPPERSERVICESVC_IMPL_H
-#define COORDINATEMAPPERSERVICESVC_IMPL_H
+#ifndef COORDINATEMAPPERSERVICE_IMPL_H
+#define COORDINATEMAPPERSERVICE_IMPL_H
 
 //#include "CoordinateMapperServiceSkel.h"
 #include "CoordinateMapperService.hh"
@@ -15,14 +15,14 @@
 /*
  * Example class implementing IDL interface CoordinateMapperService
  */
-class CoordinateMapperServiceSVC_impl
+class CoordinateMapperService_impl
 : public virtual POA_OpenHRP::CoordinateMapperService,
 public virtual PortableServer::RefCountServantBase
 {
 	public:
 		// standard constructor
-		CoordinateMapperServiceSVC_impl();
-		virtual ~CoordinateMapperServiceSVC_impl();
+		CoordinateMapperService_impl();
+		virtual ~CoordinateMapperService_impl();
 		bool loadModel(std::string &model);
 
 		// attributes and operations
@@ -32,7 +32,7 @@ public virtual PortableServer::RefCountServantBase
 	private:
 		// Make sure all instances are built on the heap by making the
 		// destructor non-public
-		//virtual ~CoordinateMapperServiceSVC_impl();
+		//virtual ~CoordinateMapperService_impl();
 		mapper *map_mod;
 };
-#endif							 // COORDINATEMAPPERSERVICESVC_IMPL_H
+#endif							 // COORDINATEMAPPERSERVICE_IMPL_H
