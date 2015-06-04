@@ -1,0 +1,1 @@
+This RTC can be used to map one coordinate system to another and can be used for robots used in OpenHRP
